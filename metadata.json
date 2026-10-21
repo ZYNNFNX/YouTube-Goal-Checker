@@ -1,0 +1,6 @@
+{
+  "name": "YT Goal Checker & Creator Hub",
+  "description": "Universal editable YouTube goal checker, subscriber milestone tracker, and production dashboard for creators.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en" class="dark"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Toji.FNX</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&amp;family=Rajdhani:wght@500;600;700&amp;family=Fira+Code:wght@400;600&amp;display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            pink: '#ff0055',
+                            cyan: '#00f0ff',
+                            gold: '#ffe600',
+                            bg: '#0a0a0c',
+                            card: '#121218',
+                            border: '#232330',
+                            hover: '#1c1c28'
+                        }
+                    },
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        rajdhani: ['Rajdhani', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0a0a0c;
+            color: #f3f4f6;
+            font-family: 'Rajdhani', sans-serif;
+        }
+        .glow-pink {
+            box-shadow: 0 0 25px rgba(255, 0, 85, 0.4);
+        }
+        .glow-cyan {
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+        }
+        .glow-gold {
+            box-shadow: 0 0 25px rgba(255, 230, 0, 0.4);
+        }
+        .glow-text-pink {
+            text-shadow: 0 0 12px rgba(255, 0, 85, 0.8);
+        }
+        .glow-text-cyan {
+            text-shadow: 0 0 12px rgba(0, 240, 255, 0.8);
+        }
+        .glow-text-gold {
+            text-shadow: 0 0 12px rgba(255, 230, 0, 0.8);
+        }
+        .bg-grid {
+            background-image: linear-gradient(to right, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 0, 85, 0.03) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        
+        /* Universal Editable Highlight Styling */
+        [contenteditable="true"] {
+            outline: none;
+            transition: all 0.2s ease;
+            border-radius: 4px;
+        }
+        [contenteditable="true"]:hover {
+            background-color: rgba(255, 255, 255, 0.07);
+            box-shadow: 0 0 0 1px rgba(0, 240, 255, 0.3);
+            cursor: pointer;
+        }
+        [contenteditable="true"]:focus {
+            background-color: rgba(0, 240, 255, 0.1);
+            box-shadow: 0 0 0 2px #00f0ff;
+            color: #ffffff;
+        }
+
+        /* Custom scrollbars */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #232330;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff0055;
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:Fira Code, monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.relative{position:relative}.sticky{position:sticky}.top-0{top:0px}.z-10{z-index:10}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.my-4{margin-top:1rem;margin-bottom:1rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.ml-1{margin-left:0.25rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-2{height:0.5rem}.h-full{height:100%}.h-4{height:1rem}.max-h-\[380px\]{max-height:380px}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-20{width:5rem}.w-24{width:6rem}.w-28{width:7rem}.w-32{width:8rem}.w-full{width:100%}.w-4{width:1rem}.min-w-\[280px\]{min-width:280px}.max-w-7xl{max-width:80rem}.flex-1{flex:1 1 0%}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.items-baseline{align-items:baseline}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-2\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.625rem * var(--tw-space-y-reverse))}.space-y-8 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem * var(--tw-space-y-reverse))}.space-y-1\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.375rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-cyber-border{--tw-border-opacity:1;border-color:rgb(35 35 48 / var(--tw-border-opacity, 1))}.border-cyber-cyan\/30{border-color:rgb(0 240 255 / 0.3)}.border-cyber-cyan\/40{border-color:rgb(0 240 255 / 0.4)}.border-cyber-gold\/30{border-color:rgb(255 230 0 / 0.3)}.border-cyber-gold\/40{border-color:rgb(255 230 0 / 0.4)}.border-cyber-pink\/30{border-color:rgb(255 0 85 / 0.3)}.border-cyber-pink\/40{border-color:rgb(255 0 85 / 0.4)}.border-cyber-pink\/50{border-color:rgb(255 0 85 / 0.5)}.border-red-800\/50{border-color:rgb(153 27 27 / 0.5)}.border-transparent{border-color:transparent}.border-cyber-border\/40{border-color:rgb(35 35 48 / 0.4)}.border-green-500\/30{border-color:rgb(34 197 94 / 0.3)}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.bg-cyber-card{--tw-bg-opacity:1;background-color:rgb(18 18 24 / var(--tw-bg-opacity, 1))}.bg-cyber-card\/90{background-color:rgb(18 18 24 / 0.9)}.bg-cyber-cyan{--tw-bg-opacity:1;background-color:rgb(0 240 255 / var(--tw-bg-opacity, 1))}.bg-cyber-cyan\/10{background-color:rgb(0 240 255 / 0.1)}.bg-cyber-cyan\/20{background-color:rgb(0 240 255 / 0.2)}.bg-cyber-gold\/10{background-color:rgb(255 230 0 / 0.1)}.bg-cyber-gold\/20{background-color:rgb(255 230 0 / 0.2)}.bg-cyber-pink{--tw-bg-opacity:1;background-color:rgb(255 0 85 / var(--tw-bg-opacity, 1))}.bg-cyber-pink\/10{background-color:rgb(255 0 85 / 0.1)}.bg-cyber-pink\/20{background-color:rgb(255 0 85 / 0.2)}.bg-red-950\/40{background-color:rgb(69 10 10 / 0.4)}.bg-transparent{background-color:transparent}.bg-cyber-card\/80{background-color:rgb(18 18 24 / 0.8)}.bg-gray-800{--tw-bg-opacity:1;background-color:rgb(31 41 55 / var(--tw-bg-opacity, 1))}.bg-green-500\/20{background-color:rgb(34 197 94 / 0.2)}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.bg-gradient-to-tr{background-image:linear-gradient(to top right, var(--tw-gradient-stops))}.from-cyber-card{--tw-gradient-from:#121218 var(--tw-gradient-from-position);--tw-gradient-to:rgb(18 18 24 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-cyber-gold{--tw-gradient-from:#ffe600 var(--tw-gradient-from-position);--tw-gradient-to:rgb(255 230 0 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-cyber-pink{--tw-gradient-from:#ff0055 var(--tw-gradient-from-position);--tw-gradient-to:rgb(255 0 85 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-black{--tw-gradient-to:rgb(0 0 0 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #000 var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-cyber-card{--tw-gradient-to:#121218 var(--tw-gradient-to-position)}.to-cyber-gold{--tw-gradient-to:#ffe600 var(--tw-gradient-to-position)}.to-yellow-200{--tw-gradient-to:#fef08a var(--tw-gradient-to-position)}.p-1{padding:0.25rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-1\.5{padding:0.375rem}.p-2\.5{padding:0.625rem}.p-3{padding:0.75rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.px-1\.5{padding-left:0.375rem;padding-right:0.375rem}.pb-20{padding-bottom:5rem}.pr-1{padding-right:0.25rem}.pt-6{padding-top:1.5rem}.pb-1\.5{padding-bottom:0.375rem}.text-center{text-align:center}.text-right{text-align:right}.font-mono{font-family:Fira Code, monospace}.font-orbitron{font-family:Orbitron, sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[10px\]{font-size:10px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-\[11px\]{font-size:11px}.font-black{font-weight:900}.font-bold{font-weight:700}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-cyber-cyan{--tw-text-opacity:1;color:rgb(0 240 255 / var(--tw-text-opacity, 1))}.text-cyber-gold{--tw-text-opacity:1;color:rgb(255 230 0 / var(--tw-text-opacity, 1))}.text-cyber-pink{--tw-text-opacity:1;color:rgb(255 0 85 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-gray-200{--tw-text-opacity:1;color:rgb(229 231 235 / var(--tw-text-opacity, 1))}.text-green-400{--tw-text-opacity:1;color:rgb(74 222 128 / var(--tw-text-opacity, 1))}.line-through{-webkit-text-decoration-line:line-through;text-decoration-line:line-through}.accent-cyber-pink{accent-color:#ff0055}.opacity-0{opacity:0}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-500{transition-duration:500ms}.selection\:bg-cyber-pink *::selection{--tw-bg-opacity:1;background-color:rgb(255 0 85 / var(--tw-bg-opacity, 1))}.selection\:text-white *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.selection\:bg-cyber-pink::selection{--tw-bg-opacity:1;background-color:rgb(255 0 85 / var(--tw-bg-opacity, 1))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:border-cyber-cyan\/50:hover{border-color:rgb(0 240 255 / 0.5)}.hover\:border-cyber-gold\/50:hover{border-color:rgb(255 230 0 / 0.5)}.hover\:border-cyber-pink\/50:hover{border-color:rgb(255 0 85 / 0.5)}.hover\:border-gray-600:hover{--tw-border-opacity:1;border-color:rgb(75 85 99 / var(--tw-border-opacity, 1))}.hover\:border-cyber-cyan\/40:hover{border-color:rgb(0 240 255 / 0.4)}.hover\:border-cyber-gold\/40:hover{border-color:rgb(255 230 0 / 0.4)}.hover\:border-cyber-pink\/40:hover{border-color:rgb(255 0 85 / 0.4)}.hover\:bg-cyan-300:hover{--tw-bg-opacity:1;background-color:rgb(103 232 249 / var(--tw-bg-opacity, 1))}.hover\:bg-cyber-cyan\/30:hover{background-color:rgb(0 240 255 / 0.3)}.hover\:bg-cyber-gold\/30:hover{background-color:rgb(255 230 0 / 0.3)}.hover\:bg-cyber-hover:hover{--tw-bg-opacity:1;background-color:rgb(28 28 40 / var(--tw-bg-opacity, 1))}.hover\:bg-cyber-pink\/30:hover{background-color:rgb(255 0 85 / 0.3)}.hover\:bg-pink-600:hover{--tw-bg-opacity:1;background-color:rgb(219 39 119 / var(--tw-bg-opacity, 1))}.hover\:bg-red-900\/60:hover{background-color:rgb(127 29 29 / 0.6)}.hover\:bg-white\/5:hover{background-color:rgb(255 255 255 / 0.05)}.hover\:text-red-300:hover{--tw-text-opacity:1;color:rgb(252 165 165 / var(--tw-text-opacity, 1))}.hover\:text-red-400:hover{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.focus\:border-cyber-cyan:focus{--tw-border-opacity:1;border-color:rgb(0 240 255 / var(--tw-border-opacity, 1))}.focus\:border-cyber-gold:focus{--tw-border-opacity:1;border-color:rgb(255 230 0 / var(--tw-border-opacity, 1))}.focus\:border-cyber-pink:focus{--tw-border-opacity:1;border-color:rgb(255 0 85 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.group\/task:hover .group-hover\/task\:opacity-100{opacity:1}@media (min-width: 768px){.md\:inline{display:inline}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:p-6{padding:1.5rem}.md\:text-left{text-align:left}.md\:text-2xl{font-size:1.5rem;line-height:2rem}}@media (min-width: 1024px){.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:grid-cols-7{grid-template-columns:repeat(7, minmax(0, 1fr))}}</style></head>
+<body class="bg-grid min-h-screen pb-20 selection:bg-cyber-pink selection:text-white">
+
+    <!-- TOP CONTROL HEADER -->
+    <header class="border-b border-cyber-border bg-cyber-card/90 backdrop-blur-md sticky top-0 z-50 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyber-pink to-cyber-gold flex items-center justify-center font-orbitron font-black text-xl text-black shadow-lg glow-pink">
+                    T
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 id="txt_brandTitle" contenteditable="true" onblur="saveText('txt_brandTitle', this.innerText)" class="font-orbitron font-black text-xl md:text-2xl tracking-wider text-white">@TOJI.FNX</h1>
+                        <span id="txt_brandBadge" contenteditable="true" onblur="saveText('txt_brandBadge', this.innerText)" class="text-[10px] font-orbitron px-2 py-0.5 rounded bg-cyber-pink/20 text-cyber-pink border border-cyber-pink/50 font-bold uppercase">Edit User</span>
+                    </div>
+                    <p id="txt_brandSub" contenteditable="true" onblur="saveText('txt_brandSub', this.innerText)" class="text-xs text-gray-400 font-mono">Your User right above 👆</p>
+                </div>
+            </div>
+
+            <!-- Global Action Controls -->
+            <div class="flex items-center gap-2 text-xs font-orbitron">
+                <button onclick="exportData()" class="px-3 py-2 rounded-lg bg-cyber-card hover:bg-cyber-hover text-cyber-cyan border border-cyber-cyan/40 transition flex items-center gap-1.5 shadow-md">
+                    <i class="fa-solid fa-download"></i> <span id="txt_btnExport" contenteditable="true" onblur="saveText('txt_btnExport', this.innerText)">Export save</span>
+                </button>
+                <label class="px-3 py-2 rounded-lg bg-cyber-card hover:bg-cyber-hover text-cyber-pink border border-cyber-pink/40 cursor-pointer transition flex items-center gap-1.5 shadow-md">
+                    <i class="fa-solid fa-upload"></i> <span id="txt_btnImport" contenteditable="true" onblur="saveText('txt_btnImport', this.innerText)">Import save</span>
+                    <input type="file" id="importFile" onchange="importData(event)" class="hidden" accept=".json">
+                </label>
+                <button onclick="resetToDefaults()" class="px-3 py-2 rounded-lg bg-red-950/40 hover:bg-red-900/60 text-red-400 border border-red-800/50 transition flex items-center gap-1.5 shadow-md">
+                    <i class="fa-solid fa-rotate-left"></i> <span id="txt_btnReset" contenteditable="true" onblur="saveText('txt_btnReset', this.innerText)">Reset All</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 pt-6 space-y-8">
+
+        <!-- EDIT PROMPT NOTICE BANNER -->
+        <div class="bg-cyber-pink/10 border border-cyber-pink/30 rounded-xl px-4 py-2 flex items-center justify-between gap-3 text-xs font-mono text-cyber-pink">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-pen-to-square animate-pulse text-sm"></i>
+                <span><strong>EVERY TEXT IS EDITABLE!</strong> Click or double-click ANY header, metric title, task name, rule, date, or button text to change it instantly.</span>
+            </div>
+            <span class="hidden md:inline text-gray-400 text-[10px]">Changes Auto-Saved to LocalStorage</span>
+        </div>
+
+        <!-- MOTIVATIONAL CREED & COUNTDOWN SECTION -->
+        <section class="bg-gradient-to-r from-cyber-card via-black to-cyber-card border border-cyber-border rounded-2xl p-5 md:p-6 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+            <div class="space-y-2 text-center md:text-left z-10 flex-1">
+                <p id="txt_quoteBadge" contenteditable="true" onblur="saveText('txt_quoteBadge', this.innerText)" class="text-xs font-orbitron text-cyber-cyan uppercase tracking-widest flex items-center gap-1.5">CREATOR &amp; MOTIVATION</p>
+                <h2 id="txt_mainQuote" contenteditable="true" onblur="saveText('txt_mainQuote', this.innerText)" class="text-lg md:text-2xl font-bold italic text-white p-1 rounded transition">"Relentless editing. Unmatched discipline. DOMINATE THE ALGORITHM."</h2>
+            </div>
+            
+            <!-- Target Countdown Timer -->
+            <div class="bg-cyber-card/90 border border-cyber-border rounded-xl p-4 min-w-[280px] text-center z-10 shadow-lg">
+                <div class="text-xs font-orbitron text-gray-400 flex items-center justify-center gap-2 mb-2">
+                    <i class="fa-solid fa-clock text-cyber-gold"></i>
+                    <span id="txt_timerLabel" contenteditable="true" onblur="saveText('txt_timerLabel', this.innerText)">GOAL DAY</span>
+                </div>
+                <div class="flex items-center justify-center gap-2 mb-2">
+                    <input type="date" id="targetDatePicker" onchange="updateTargetDate(this.value)" class="bg-black text-cyber-cyan font-orbitron font-bold text-xs px-2 py-1 rounded border border-cyber-border outline-none focus:border-cyber-cyan">
+                </div>
+                <div id="countdownDisplay" class="text-2xl font-orbitron font-black text-cyber-pink glow-text-pink">381d 12h 1m 39s</div>
+            </div>
+        </section>
+
+        <!-- UNIVERSAL EDITABLE METRICS & COUNTERS GRID -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- METRIC CARD 1 (Default: Shorts) -->
+            <div class="bg-cyber-card border border-cyber-border rounded-2xl p-5 relative overflow-hidden shadow-xl group hover:border-cyber-pink/50 transition">
+                <div class="flex justify-between items-start mb-3">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-10 h-10 rounded-lg bg-cyber-pink/20 border border-cyber-pink/40 flex items-center justify-center text-cyber-pink text-lg">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <div>
+                            <h3 id="txt_m1_title" contenteditable="true" onblur="saveText('txt_m1_title', this.innerText)" class="font-orbitron font-bold text-lg text-white">SHORTS POSTED</h3>
+                            <p id="txt_m1_sub" contenteditable="true" onblur="saveText('txt_m1_sub', this.innerText)" class="text-xs text-gray-400">High-Velocity Short Form</p>
+                        </div>
+                    </div>
+                    <span id="m1_pct" class="text-xs font-orbitron px-2 py-1 rounded bg-cyber-pink/10 text-cyber-pink font-bold border border-cyber-pink/30">42%</span>
+                </div>
+
+                <!-- Current / Target Numerical Inputs -->
+                <div class="my-4 flex items-baseline justify-between">
+                    <div class="flex items-baseline gap-1">
+                        <input type="number" id="m1_curr" onchange="updateMetric('m1_curr', this.value)" class="bg-transparent font-orbitron font-black text-4xl text-white w-28 outline-none border-b border-transparent hover:border-gray-600 focus:border-cyber-pink">
+                        <span class="text-gray-500 font-orbitron text-xl">/</span>
+                        <input type="number" id="m1_targ" onchange="updateMetric('m1_targ', this.value)" class="bg-transparent font-orbitron font-bold text-xl text-gray-400 w-20 outline-none border-b border-transparent hover:border-gray-600 focus:border-cyber-pink">
+                    </div>
+                    <div class="text-right">
+                        <span id="txt_m1_leftLabel" contenteditable="true" onblur="saveText('txt_m1_leftLabel', this.innerText)" class="text-[10px] font-orbitron text-gray-400 uppercase block">REMAINING</span>
+                        <span id="m1_left" class="font-orbitron font-bold text-sm text-cyber-pink">58</span>
+                    </div>
+                </div>
+
+                <!-- Fast Increment Controls -->
+                <div class="flex gap-2 mb-4">
+                    <button onclick="changeMetric('m1_curr', -1)" class="flex-1 py-1 rounded bg-black hover:bg-cyber-hover text-gray-300 font-orbitron text-xs border border-cyber-border transition">-1</button>
+                    <button onclick="changeMetric('m1_curr', 1)" class="flex-1 py-1 rounded bg-cyber-pink/20 hover:bg-cyber-pink/30 text-cyber-pink font-orbitron text-xs border border-cyber-pink/40 transition">+1</button>
+                    <button onclick="changeMetric('m1_curr', 5)" class="flex-1 py-1 rounded bg-cyber-pink/20 hover:bg-cyber-pink/30 text-cyber-pink font-orbitron text-xs border border-cyber-pink/40 transition">+5</button>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="w-full bg-black h-2 rounded-full overflow-hidden border border-cyber-border">
+                    <div id="m1_bar" class="bg-gradient-to-r from-cyber-pink to-cyber-gold h-full transition-all duration-500" style="width: 42%;"></div>
+                </div>
+            </div>
+
+            <!-- METRIC CARD 2 (Default: AMVs) -->
+            <div class="bg-cyber-card border border-cyber-border rounded-2xl p-5 relative overflow-hidden shadow-xl group hover:border-cyber-cyan/50 transition">
+                <div class="flex justify-between items-start mb-3">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-10 h-10 rounded-lg bg-cyber-cyan/20 border border-cyber-cyan/40 flex items-center justify-center text-cyber-cyan text-lg">
+                            <i class="fa-solid fa-film"></i>
+                        </div>
+                        <div>
+                            <h3 id="txt_m2_title" contenteditable="true" onblur="saveText('txt_m2_title', this.innerText)" class="font-orbitron font-bold text-lg text-white">AMVS PRODUCED</h3>
+                            <p id="txt_m2_sub" contenteditable="true" onblur="saveText('txt_m2_sub', this.innerText)" class="text-xs text-gray-400">Masterpiece Projects</p>
+                        </div>
+                    </div>
+                    <span id="m2_pct" class="text-xs font-orbitron px-2 py-1 rounded bg-cyber-cyan/10 text-cyber-cyan font-bold border border-cyber-cyan/30">40%</span>
+                </div>
+
+                <!-- Current / Target Numerical Inputs -->
+                <div class="my-4 flex items-baseline justify-between">
+                    <div class="flex items-baseline gap-1">
+                        <input type="number" id="m2_curr" onchange="updateMetric('m2_curr', this.value)" class="bg-transparent font-orbitron font-black text-4xl text-white w-28 outline-none border-b border-transparent hover:border-gray-600 focus:border-cyber-cyan">
+                        <span class="text-gray-500 font-orbitron text-xl">/</span>
+                        <input type="number" id="m2_targ" onchange="updateMetric('m2_targ', this.value)" class="bg-transparent font-orbitron font-bold text-xl text-gray-400 w-20 outline-none border-b border-transparent hover:border-gray-600 focus:border-cyber-cyan">
+                    </div>
+                    <div class="text-right">
+                        <span id="txt_m2_leftLabel" contenteditable="true" onblur="saveText('txt_m2_leftLabel', this.innerText)" class="text-[10px] font-orbitron text-gray-400 uppercase block">REMAINING</span>
+                        <span id="m2_left" class="font-orbitron font-bold text-sm text-cyber-cyan">18</span>
+                    </div>
+                </div>
+
+                <!-- Fast Increment Controls -->
+                <div class="flex gap-2 mb-4">
+                    <button onclick="changeMetric('m2_curr', -1)" class="flex-1 py-1 rounded bg-black hover:bg-cyber-hover text-gray-300 font-orbitron text-xs border border-cyber-border transition">-1</button>
+                    <button onclick="changeMetric('m2_curr', 1)" class="flex-1 py-1 rounded bg-cyber-cyan/20 hover:bg-cyber-cyan/30 text-cyber-cyan font-orbitron text-xs border border-cyber-cyan/40 transition">+1</button>
+                    <button onclick="changeMetric('m2_curr', 5)" class="flex-1 py-1 rounded bg-cyber-cyan/20 hover:bg-cyber-cyan/30 text-cyber-cyan font-orbitron text-xs border border-cyber-cyan/40 transition">+5</button>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="w-full bg-black h-2 rounded-full overflow-hidden border border-cyber-border">
+                    <div id="m2_bar" class="bg-cyber-cyan h-full transition-all duration-500" style="width: 40%;"></div>
+                </div>
+            </div>
+
+            <!-- METRIC CARD 3 (Default: Subscribers) -->
+            <div class="bg-cyber-card border border-cyber-border rounded-2xl p-5 relative overflow-hidden shadow-xl group hover:border-cyber-gold/50 transition">
+                <div class="flex justify-between items-start mb-3">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-10 h-10 rounded-lg bg-cyber-gold/20 border border-cyber-gold/40 flex items-center justify-center text-cyber-gold text-lg">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div>
+                            <h3 id="txt_m3_title" contenteditable="true" onblur="saveText('txt_m3_title', this.innerText)" class="font-orbitron font-bold text-lg text-white">SUBSCRIBERS</h3>
+                            <p id="txt_m3_sub" contenteditable="true" onblur="saveText('txt_m3_sub', this.innerText)" class="text-xs text-gray-400">Audience Growth</p>
+                        </div>
+                    </div>
+                    <span id="m3_pct" class="text-xs font-orbitron px-2 py-1 rounded bg-cyber-gold/10 text-cyber-gold font-bold border border-cyber-gold/30">13%</span>
+                </div>
+
+                <!-- Current / Target Numerical Inputs -->
+                <div class="my-4 flex items-baseline justify-between">
+                    <div class="flex items-baseline gap-1">
+                        <input type="number" id="m3_curr" onchange="updateMetric('m3_curr', this.value)" class="bg-transparent font-orbitron font-black text-3xl text-white w-32 outline-none border-b border-transparent hover:border-gray-600 focus:border-cyber-gold">
+                        <span class="text-gray-500 font-orbitron text-lg">/</span>
+                        <input type="number" id="m3_targ" onchange="updateMetric('m3_targ', this.value)" class="bg-transparent font-orbitron font-bold text-lg text-gray-400 w-24 outline-none border-b border-transparent hover:border-gray-600 focus:border-cyber-gold">
+                    </div>
+                    <div class="text-right">
+                        <span id="txt_m3_leftLabel" contenteditable="true" onblur="saveText('txt_m3_leftLabel', this.innerText)" class="text-[10px] font-orbitron text-gray-400 uppercase block">NEEDED</span>
+                        <span id="m3_left" class="font-orbitron font-bold text-sm text-cyber-gold">8750</span>
+                    </div>
+                </div>
+
+                <!-- Fast Increment Controls -->
+                <div class="flex gap-2 mb-4">
+                    <button onclick="changeMetric('m3_curr', -10)" class="flex-1 py-1 rounded bg-black hover:bg-cyber-hover text-gray-300 font-orbitron text-xs border border-cyber-border transition">-10</button>
+                    <button onclick="changeMetric('m3_curr', 10)" class="flex-1 py-1 rounded bg-cyber-gold/20 hover:bg-cyber-gold/30 text-cyber-gold font-orbitron text-xs border border-cyber-gold/40 transition">+10</button>
+                    <button onclick="changeMetric('m3_curr', 100)" class="flex-1 py-1 rounded bg-cyber-gold/20 hover:bg-cyber-gold/30 text-cyber-gold font-orbitron text-xs border border-cyber-gold/40 transition">+100</button>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="w-full bg-black h-2 rounded-full overflow-hidden border border-cyber-border">
+                    <div id="m3_bar" class="bg-gradient-to-r from-cyber-gold to-yellow-200 h-full transition-all duration-500" style="width: 13%;"></div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- FULLY EDITABLE WEEKLY PRODUCTION CALENDAR -->
+        <section class="bg-cyber-card border border-cyber-border rounded-2xl p-6 shadow-2xl">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                <div>
+                    <h2 id="txt_calSectionTitle" contenteditable="true" onblur="saveText('txt_calSectionTitle', this.innerText)" class="font-orbitron font-bold text-xl text-white flex items-center gap-2">WEEKLY PRODUCTION SCHEDULE</h2>
+                    <p id="txt_calSectionSub" contenteditable="true" onblur="saveText('txt_calSectionSub', this.innerText)" class="text-xs text-gray-400">Click any day, focus area, or task item to edit text inline.</p>
+                </div>
+            </div>
+
+            <!-- Calendar Days Grid -->
+            <div id="weeklyCalendarGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-4"><div class="bg-black border border-cyber-border rounded-xl p-3 flex flex-col justify-between hover:border-cyber-pink/40 transition shadow-md">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-cyber-border pb-1.5 mb-2">
+                            <span contenteditable="true" onblur="updateDayTitle(0, this.innerText)" class="font-orbitron font-bold text-xs text-cyber-pink uppercase outline-none">Monday</span>
+                            <button onclick="addDayTask(0)" class="text-[10px] font-orbitron bg-cyber-pink/20 text-cyber-pink hover:bg-cyber-pink/30 px-1.5 py-0.5 rounded border border-cyber-pink/30">
+                                + Task
+                            </button>
+                        </div>
+                        <div contenteditable="true" onblur="updateDayFocus(0, this.innerText)" class="text-xs font-semibold text-cyber-cyan mb-2 outline-none hover:bg-white/5 p-1 rounded">
+                            Scripting &amp; Audio Sync
+                        </div>
+                        <div class="space-y-1.5">
+                            
+                    <div class="flex items-center justify-between text-xs text-gray-300 bg-cyber-card/80 p-1.5 rounded border border-cyber-border/40 group/task">
+                        <span contenteditable="true" onblur="updateDayTask(0, 0, this.innerText)" class="outline-none flex-1 hover:text-white">Find viral audio clip</span>
+                        <button onclick="removeDayTask(0, 0)" class="opacity-0 group-hover/task:opacity-100 text-red-400 hover:text-red-300 ml-1">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                
+                    <div class="flex items-center justify-between text-xs text-gray-300 bg-cyber-card/80 p-1.5 rounded border border-cyber-border/40 group/task">
+                        <span contenteditable="true" onblur="updateDayTask(0, 1, this.innerText)" class="outline-none flex-1 hover:text-white">Set up BPM markers</span>
+                        <button onclick="removeDayTask(0, 1)" class="opacity-0 group-hover/task:opacity-100 text-red-400 hover:text-red-300 ml-1">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                
+                    <div class="flex items-center justify-between text-xs text-gray-300 bg-cyber-card/80 p-1.5 rounded border border-cyber-border/40 group/task">
+                        <span contenteditable="true" onblur="updateDayTask(0, 2, this.innerText)" class="outline-none flex-1 hover:text-white">Cut intro 5 seconds</span>
+                        <button onclick="removeDayTask(0, 2)" class="opacity-0 group-hover/task:opacity-100 text-red-400 hover:text-red-300 ml-1">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                
+                        </div>
+                    </div>
+                </div><div class="bg-black border border-cyber-border rounded-xl p-3 flex flex-col justify-between hover:border-cyber-pink/40 transition shadow-md">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-cyber-border pb-1.5 mb-2">
+                            <span contenteditable="true" onblur="updateDayTitle(1, this.innerText)" class="font-orbitron font-bold text-xs text-cyber-pink uppercase outline-none">Tuesday</span>
+                            <button onclick="addDayTask(1)" class="text-[10px] font-orbitron bg-cyber-pink/20 text-cyber-pink hover:bg-cyber-pink/30 px-1.5 py-0.5 rounded border border-cyber-pink/30">
+                                + Task
+                            </button>
+                        </div>
+                        <div contenteditable="true" onblur="updateDayFocus(1, this.innerText)" class="text-xs font-semibold text-cyber-cyan mb-2 outline-none hover:bg-white/5 p-1 rounded">
+                            Batch Editing
+                        </div>
+                        <div class="space-y-1.5">
+                            
+                    <div class="flex items-center justify-between text-xs text-gray-300 bg-cyber-card/80 p-1.5 rounded border border-cyber-border/40 group/task">
+                        <span contenteditable="true" onblur="updateDayTask(1, 0, this.innerText)" class="outline-none flex-1 hover:text-white">Edit 3 High-energy shorts</span>
+                        <button onclick="removeDayTask(1, 0)" class="opacity-0 group-hover/task:opacity-100 text-red-400 hover:text-red-300 ml-1">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                
+                    <div class="flex items-center justify-between text-xs text-gray-300 bg-cyber-card/80 p-1.5 rounded border border-cyber-border/40 group/task">
+                        <span contenteditable="true" onblur="updateDayTask(1, 1, this.innerText)" class="outline-none flex-1 hover:text-white">Export 4K 60FPS vertical</span>
+                        <button onclick="removeDayTask(1, 1)" class="opacity-0 group-hover/task:opacity-100 text-red-400 hover:text-red-300 ml-1">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                
+                    <div class="flex items-center justify-between text-xs text-gray-300 bg-cyber-card/80 p-1.5 rounded border border-cyber-border/40 group/task">
+                        <span contenteditable="true" onblur="updateDayTask(1, 2, this.innerText)" class="outline-none flex-1 hover:text-white">Draft titles &amp; tags</span>
+                        <button onclick="removeDayTask(1, 2)" class="opacity-0 group-hover/task:opacity-100 text-red-400 hover:text-red-300 ml-1">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                
+                        </div>
+                    </div>
+                </div><div class="bg-black border border-cyber-border rounded-xl p-3 flex flex-col justify-between hover:border-cyber-pink/40 transition shadow-md">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-cyber-border pb-1.5 mb-2">
+                            <span contenteditable="true" onblur="updateDayTitle(2, this.innerText)" class="font-orbitron font-bold text-xs text-cyber-pink uppercase outline-none">Wednesday</span>
+                            <button onclick="addDayTask(2)" class="text-[10px] font-orbitron bg-cyber-pink/20 text-cyber-pink hover:bg-cyber-pink/30 px-1.5 py-0.5 rounded border border-cyber-pink/30">
+                                + Task
+                            </button>
+                        </div>
+                        <div contenteditable="true" onblur="updateDayFocus(2, this.innerText)" class="text-xs font-semibold text-cyber-cyan mb-2 outline-none hover:bg-white/5 p-1 rounded">
+                            Main Edit Phase 1
+                        </div>
+                        <div class="space-y-1.5">
+                            
+                    <div class="flex items-center justify-between text-xs text-gray-300 bg-cyber-card/80 p-1.5 rounded border border-cyber-border/40 group/task">
+                        <span contenteditable="true" onblur="updateDayTask(2, 0, this.innerText)" class="outline-none flex-1 hover:text-white">Main sequence masking</span>
+                        <button onclick="removeDayTask(2, 0)" class="opacity-0 group-hover/task:opacity-100 text-red-400 hover:text-red-300 ml-1">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                
+                    <div class="flex items-center justify-between text-xs text-gray-300 bg-cyber-card/80 p-1.5 rounded border border-cyber-border/40 group/task">
+                        <span contenteditable="true" onblur="updateDayTask(2, 1, this.innerText)" class="outline-none flex-1 hover:text-white">Impact sound effects</span>
+                        <button onclick="removeDayTask(2, 1)" class="opacity-0 group-hover/task:opacity-100 text-red-400 hover:text-red-300 ml-1">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                
+                    <div class="flex items-center justify-between text-xs text-gray-300 bg-cyber-card/80 p-1.5 rounded border border-cyber-border/40 group/task">
+                        <span contenteditable="true" onblur="updateDayTask(2, 2, this.innerText)" class="outline-none flex-1 hover:text-white">Velocity graph tuning</span>
+                        <button onclick="removeDayTask(2, 2)" class="opacity-0 group-hover/task:opacity-100 text-red-400 hover:text-red-300 ml-1">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                
+                        </div>
+                    </div>
+                </div><div class="bg-black border border-cyber-border rounded-xl p-3 flex flex-col justify-between hover:border-cyber-pink/40 transition shadow-md">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-cyber-border pb-1.5 mb-2">
+                            <span contenteditable="true" onblur="updateDayTitle(3, this.innerText)" class="font-orbitron font-bold text-xs text-cyber-pink uppercase outline-none">Thursday</span>
+                            <button onclick="addDayTask(3)" class="text-[10px] font-orbitron bg-cyber-pink/20 text-cyber-pink hover:bg-cyber-pink/30 px-1.5 py-0.5 rounded border border-cyber-pink/30">
+                                + Task
+                            </button>
+                        </div>
+                        <div contenteditable="true" onblur="updateDayFocus(3, this.innerText)" class="text-xs font-semibold text-cyber-cyan mb-2 outline-none hover:bg-white/5 p-1 rounded">
+                            Main Edit Phase 2
+                        </div>
+                        <div class="space-y-1.5">
+                            
+                    <div class="flex items-center justify-between text-xs text-gray-300 bg-cyber-card/80 p-1.5 rounded border border-cyber-border/40 group/task">
+                        <span contenteditable="true" onblur="updateDayTask(3, 0, this.innerText)" class="outline-none flex-1 hover:text-white">Color grading &amp; Glow FX</span>
+                        <button onclick="removeDayTask(3, 0)" class="opacity-0 group-hover/task:opacity-100 text-red-400 hover:text-red-300 ml-1">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                
+                    <div class="flex items-center justify-between text-xs text-gray-300 bg-cyber-card/80 p-1.5 rounded border border-cyber-border/40 group/task">
+                        <span contenteditable="true" onblur="updateDayTask(3, 1, this.innerText)" class="outline-none flex-1 hover:text-white">Typography &amp; Overlays</span>
+                        <button onclick="removeDayTask(3, 1)" class="opacity-0 group-hover/task:opacity-100 text-red-400 hover:text-red-300 ml-1">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                
+                    <div class="flex items-center justify-between text-xs text-gray-300 bg-cyber-card/80 p-1.5 rounded border border-cyber-border/40 group/task">
+                        <span contenteditable="true" onblur="updateDayTask(3, 2, this.innerText)" class="outline-none flex-1 hover:text-white">Render preview export</span>
+                        <button onclick="removeDayTask(3, 2)" class="opacity-0 group-hover/task:opacity-100 text-red-400 hover:text-red-300 ml-1">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                
+                        </div>
+                    </div>
+                </div><div class="bg-black border border-cyber-border rounded-xl p-3 flex flex-col justify-between hover:border-cyber-pink/40 transition shadow-md">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-cyber-border pb-1.5 mb-2">
+                            <span contenteditable="true" onblur="updateDayTitle(4, this.innerText)" class="font-orbitron font-bold text-xs text-cyber-pink uppercase outline-none">Friday</span>
+                            <button onclick="addDayTask(4)" class="text-[10px] font-orbitron bg-cyber-pink/20 text-cyber-pink hover:bg-cyber-pink/30 px-1.5 py-0.5 rounded border border-cyber-pink/30">
+                                + Task
+                            </button>
+                        </div>
+                        <div contenteditable="true" onblur="updateDayFocus(4, this.innerText)" class="text-xs font-semibold text-cyber-cyan mb-2 outline-none hover:bg-white/5 p-1 rounded">
+                            Uploads &amp; Teasers
+                        </div>
+                        <div class="space-y-1.5">
+                            
+                    <div class="flex items-center justify-between text-xs text-gray-300 bg-cyber-card/80 p-1.5 rounded border border-cyber-border/40 group/task">
+                        <span contenteditable="true" onblur="updateDayTask(4, 0, this.innerText)" class="outline-none flex-1 hover:text-white">Post Short #1</span>
+                        <button onclick="removeDayTask(4, 0)" class="opacity-0 group-hover/task:opacity-100 text-red-400 hover:text-red-300 ml-1">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                
+                    <div class="flex items-center justify-between text-xs text-gray-300 bg-cyber-card/80 p-1.5 rounded border border-cyber-border/40 group/task">
+                        <span contenteditable="true" onblur="updateDayTask(4, 1, this.innerText)" class="outline-none flex-1 hover:text-white">Schedule Short #2</span>
+                        <button onclick="removeDayTask(4, 1)" class="opacity-0 group-hover/task:opacity-100 text-red-400 hover:text-red-300 ml-1">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                
+                    <div class="flex items-center justify-between text-xs text-gray-300 bg-cyber-card/80 p-1.5 rounded border border-cyber-border/40 group/task">
+                        <span contenteditable="true" onblur="updateDayTask(4, 2, this.innerText)" class="outline-none flex-1 hover:text-white">Community tab teaser</span>
+                        <button onclick="removeDayTask(4, 2)" class="opacity-0 group-hover/task:opacity-100 text-red-400 hover:text-red-300 ml-1">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                
+                        </div>
+                    </div>
+                </div><div class="bg-black border border-cyber-border rounded-xl p-3 flex flex-col justify-between hover:border-cyber-pink/40 transition shadow-md">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-cyber-border pb-1.5 mb-2">
+                            <span contenteditable="true" onblur="updateDayTitle(5, this.innerText)" class="font-orbitron font-bold text-xs text-cyber-pink uppercase outline-none">Saturday</span>
+                            <button onclick="addDayTask(5)" class="text-[10px] font-orbitron bg-cyber-pink/20 text-cyber-pink hover:bg-cyber-pink/30 px-1.5 py-0.5 rounded border border-cyber-pink/30">
+                                + Task
+                            </button>
+                        </div>
+                        <div contenteditable="true" onblur="updateDayFocus(5, this.innerText)" class="text-xs font-semibold text-cyber-cyan mb-2 outline-none hover:bg-white/5 p-1 rounded">
+                            Full Release Day
+                        </div>
+                        <div class="space-y-1.5">
+                            
+                    <div class="flex items-center justify-between text-xs text-gray-300 bg-cyber-card/80 p-1.5 rounded border border-cyber-border/40 group/task">
+                        <span contenteditable="true" onblur="updateDayTask(5, 0, this.innerText)" class="outline-none flex-1 hover:text-white">Final audio master Check</span>
+                        <button onclick="removeDayTask(5, 0)" class="opacity-0 group-hover/task:opacity-100 text-red-400 hover:text-red-300 ml-1">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                
+                    <div class="flex items-center justify-between text-xs text-gray-300 bg-cyber-card/80 p-1.5 rounded border border-cyber-border/40 group/task">
+                        <span contenteditable="true" onblur="updateDayTask(5, 1, this.innerText)" class="outline-none flex-1 hover:text-white">Thumbnail design</span>
+                        <button onclick="removeDayTask(5, 1)" class="opacity-0 group-hover/task:opacity-100 text-red-400 hover:text-red-300 ml-1">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                
+                    <div class="flex items-center justify-between text-xs text-gray-300 bg-cyber-card/80 p-1.5 rounded border border-cyber-border/40 group/task">
+                        <span contenteditable="true" onblur="updateDayTask(5, 2, this.innerText)" class="outline-none flex-1 hover:text-white">Publish Video</span>
+                        <button onclick="removeDayTask(5, 2)" class="opacity-0 group-hover/task:opacity-100 text-red-400 hover:text-red-300 ml-1">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                
+                        </div>
+                    </div>
+                </div><div class="bg-black border border-cyber-border rounded-xl p-3 flex flex-col justify-between hover:border-cyber-pink/40 transition shadow-md">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-cyber-border pb-1.5 mb-2">
+                            <span contenteditable="true" onblur="updateDayTitle(6, this.innerText)" class="font-orbitron font-bold text-xs text-cyber-pink uppercase outline-none">Sunday</span>
+                            <button onclick="addDayTask(6)" class="text-[10px] font-orbitron bg-cyber-pink/20 text-cyber-pink hover:bg-cyber-pink/30 px-1.5 py-0.5 rounded border border-cyber-pink/30">
+                                + Task
+                            </button>
+                        </div>
+                        <div contenteditable="true" onblur="updateDayFocus(6, this.innerText)" class="text-xs font-semibold text-cyber-cyan mb-2 outline-none hover:bg-white/5 p-1 rounded">
+                            Review &amp; Analytics
+                        </div>
+                        <div class="space-y-1.5">
+                            
+                    <div class="flex items-center justify-between text-xs text-gray-300 bg-cyber-card/80 p-1.5 rounded border border-cyber-border/40 group/task">
+                        <span contenteditable="true" onblur="updateDayTask(6, 0, this.innerText)" class="outline-none flex-1 hover:text-white">Analyze CTR &amp; retention</span>
+                        <button onclick="removeDayTask(6, 0)" class="opacity-0 group-hover/task:opacity-100 text-red-400 hover:text-red-300 ml-1">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                
+                    <div class="flex items-center justify-between text-xs text-gray-300 bg-cyber-card/80 p-1.5 rounded border border-cyber-border/40 group/task">
+                        <span contenteditable="true" onblur="updateDayTask(6, 1, this.innerText)" class="outline-none flex-1 hover:text-white">Plan next week clips</span>
+                        <button onclick="removeDayTask(6, 1)" class="opacity-0 group-hover/task:opacity-100 text-red-400 hover:text-red-300 ml-1">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                
+                    <div class="flex items-center justify-between text-xs text-gray-300 bg-cyber-card/80 p-1.5 rounded border border-cyber-border/40 group/task">
+                        <span contenteditable="true" onblur="updateDayTask(6, 2, this.innerText)" class="outline-none flex-1 hover:text-white">Rest &amp; recharge</span>
+                        <button onclick="removeDayTask(6, 2)" class="opacity-0 group-hover/task:opacity-100 text-red-400 hover:text-red-300 ml-1">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                
+                        </div>
+                    </div>
+                </div></div>
+        </section>
+
+        <!-- GOALS & TO-DO LISTS SECTION -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            <!-- RANGED GOALS LIST -->
+            <div class="bg-cyber-card border border-cyber-border rounded-2xl p-6 flex flex-col justify-between shadow-2xl">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 id="txt_goalsTitle" contenteditable="true" onblur="saveText('txt_goalsTitle', this.innerText)" class="font-orbitron font-bold text-xl text-white flex items-center gap-2">CREATOR TARGET GOALS</h2>
+                    </div>
+
+                    <!-- Add Goal Input Form -->
+                    <div class="flex gap-2 mb-4">
+                        <input type="text" id="newGoalTitle" placeholder="Enter target goal..." class="flex-1 bg-black border border-cyber-border rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-cyber-cyan">
+                        <select id="newGoalRange" class="bg-black border border-cyber-border rounded-lg px-2 py-2 text-xs text-cyber-cyan font-orbitron focus:outline-none">
+                            <option value="Today">Today</option>
+                            <option value="Week 1">Week 1</option>
+                            <option value="Week 2">Week 2</option>
+                            <option value="Month 1">Month 1</option>
+                            <option value="Long Term">Long Term</option>
+                        </select>
+                        <button onclick="addGoal()" class="bg-cyber-cyan hover:bg-cyan-300 text-black font-orbitron font-bold px-4 py-2 rounded-lg text-xs transition">
+                            ADD
+                        </button>
+                    </div>
+
+                    <!-- Goal List Container -->
+                    <div id="goalList" class="space-y-2.5 max-h-[380px] overflow-y-auto pr-1"><div class="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-black border border-cyber-border hover:border-cyber-cyan/40 transition shadow-sm">
+                    <div class="flex-1">
+                        <span contenteditable="true" onblur="updateGoalTitle(1, this.innerText)" class="text-sm text-gray-200 outline-none hover:text-white">Hit 50k views on single Short</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <select onchange="updateGoalRange(1, this.value)" class="bg-cyber-card text-[11px] font-orbitron text-cyber-cyan border border-cyber-border rounded px-1.5 py-1 outline-none">
+                            <option value="Today">Today</option>
+                            <option value="Week 1" selected="">Week 1</option>
+                            <option value="Week 2">Week 2</option>
+                            <option value="Month 1">Month 1</option>
+                            <option value="Long Term">Long Term</option>
+                        </select>
+                        <select onchange="updateGoalStatus(1, this.value)" class="text-[11px] font-orbitron rounded px-1.5 py-1 border outline-none bg-green-500/20 text-green-400 border border-green-500/30">
+                            <option value="Pending">Pending</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Achieved" selected="">Achieved</option>
+                        </select>
+                        <button onclick="deleteGoal(1)" class="text-gray-500 hover:text-red-400 p-1">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </div><div class="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-black border border-cyber-border hover:border-cyber-cyan/40 transition shadow-sm">
+                    <div class="flex-1">
+                        <span contenteditable="true" onblur="updateGoalTitle(2, this.innerText)" class="text-sm text-gray-200 outline-none hover:text-white">Master 3D Masking technique</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <select onchange="updateGoalRange(2, this.value)" class="bg-cyber-card text-[11px] font-orbitron text-cyber-cyan border border-cyber-border rounded px-1.5 py-1 outline-none">
+                            <option value="Today">Today</option>
+                            <option value="Week 1">Week 1</option>
+                            <option value="Week 2" selected="">Week 2</option>
+                            <option value="Month 1">Month 1</option>
+                            <option value="Long Term">Long Term</option>
+                        </select>
+                        <select onchange="updateGoalStatus(2, this.value)" class="text-[11px] font-orbitron rounded px-1.5 py-1 border outline-none bg-cyber-pink/20 text-cyber-pink border border-cyber-pink/30">
+                            <option value="Pending">Pending</option>
+                            <option value="In Progress" selected="">In Progress</option>
+                            <option value="Achieved">Achieved</option>
+                        </select>
+                        <button onclick="deleteGoal(2)" class="text-gray-500 hover:text-red-400 p-1">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </div><div class="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-black border border-cyber-border hover:border-cyber-cyan/40 transition shadow-sm">
+                    <div class="flex-1">
+                        <span contenteditable="true" onblur="updateGoalTitle(3, this.innerText)" class="text-sm text-gray-200 outline-none hover:text-white">Publish 10 Shorts &amp; 2 Long Videos</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <select onchange="updateGoalRange(3, this.value)" class="bg-cyber-card text-[11px] font-orbitron text-cyber-cyan border border-cyber-border rounded px-1.5 py-1 outline-none">
+                            <option value="Today">Today</option>
+                            <option value="Week 1">Week 1</option>
+                            <option value="Week 2">Week 2</option>
+                            <option value="Month 1" selected="">Month 1</option>
+                            <option value="Long Term">Long Term</option>
+                        </select>
+                        <select onchange="updateGoalStatus(3, this.value)" class="text-[11px] font-orbitron rounded px-1.5 py-1 border outline-none bg-gray-800 text-gray-300">
+                            <option value="Pending" selected="">Pending</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Achieved">Achieved</option>
+                        </select>
+                        <button onclick="deleteGoal(3)" class="text-gray-500 hover:text-red-400 p-1">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </div></div>
+                </div>
+            </div>
+
+            <!-- DAILY / FLEXIBLE TO-DO LIST -->
+            <div class="bg-cyber-card border border-cyber-border rounded-2xl p-6 flex flex-col justify-between shadow-2xl">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 id="txt_todoTitle" contenteditable="true" onblur="saveText('txt_todoTitle', this.innerText)" class="font-orbitron font-bold text-xl text-white flex items-center gap-2">ACTION TO-DO LIST</h2>
+                    </div>
+
+                    <!-- Add Todo Input Form -->
+                    <div class="flex gap-2 mb-4">
+                        <input type="text" id="newTodoText" placeholder="Add edit, render, or clip task..." class="flex-1 bg-black border border-cyber-border rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-cyber-pink">
+                        <button onclick="addTodo()" class="bg-cyber-pink hover:bg-pink-600 text-white font-orbitron font-bold px-4 py-2 rounded-lg text-xs transition">
+                            ADD
+                        </button>
+                    </div>
+
+                    <!-- Todo List Container -->
+                    <div id="todoList" class="space-y-2.5 max-h-[380px] overflow-y-auto pr-1"><div class="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-black border border-cyber-border hover:border-cyber-pink/40 transition shadow-sm">
+                    <div class="flex items-center gap-3 flex-1">
+                        <input type="checkbox" checked="" onchange="toggleTodo(1)" class="w-4 h-4 accent-cyber-pink rounded cursor-pointer">
+                        <span contenteditable="true" onblur="updateTodoText(1, this.innerText)" class="text-sm line-through text-gray-500 outline-none flex-1">Export Thumbnail for Toji Edit</span>
+                    </div>
+                    <button onclick="deleteTodo(1)" class="text-gray-500 hover:text-red-400 p-1">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div><div class="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-black border border-cyber-border hover:border-cyber-pink/40 transition shadow-sm">
+                    <div class="flex items-center gap-3 flex-1">
+                        <input type="checkbox" onchange="toggleTodo(2)" class="w-4 h-4 accent-cyber-pink rounded cursor-pointer">
+                        <span contenteditable="true" onblur="updateTodoText(2, this.innerText)" class="text-sm text-gray-200 outline-none flex-1">Clean project files and cache</span>
+                    </div>
+                    <button onclick="deleteTodo(2)" class="text-gray-500 hover:text-red-400 p-1">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div><div class="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-black border border-cyber-border hover:border-cyber-pink/40 transition shadow-sm">
+                    <div class="flex items-center gap-3 flex-1">
+                        <input type="checkbox" onchange="toggleTodo(3)" class="w-4 h-4 accent-cyber-pink rounded cursor-pointer">
+                        <span contenteditable="true" onblur="updateTodoText(3, this.innerText)" class="text-sm text-gray-200 outline-none flex-1">Keyframe camera zoom on impact shot</span>
+                    </div>
+                    <button onclick="deleteTodo(3)" class="text-gray-500 hover:text-red-400 p-1">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div></div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- MASTER RULES & BENCHMARKS -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <!-- MASTER RULES -->
+            <div class="bg-cyber-card border border-cyber-border rounded-2xl p-6 shadow-2xl">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 id="txt_rulesTitle" contenteditable="true" onblur="saveText('txt_rulesTitle', this.innerText)" class="font-orbitron font-bold text-lg text-white flex items-center gap-2">EDITING RULES &amp; DIRECTIVES</h2>
+                    <button onclick="addRule()" class="text-xs font-orbitron bg-cyber-gold/20 text-cyber-gold hover:bg-cyber-gold/30 px-3 py-1 rounded border border-cyber-gold/40 transition">
+                        + Add Rule
+                    </button>
+                </div>
+                <div id="rulesList" class="space-y-2.5"><div class="flex items-center justify-between gap-2 text-sm text-gray-300 bg-black p-2.5 rounded-xl border border-cyber-border hover:border-cyber-gold/40 transition">
+                    <div class="flex items-center gap-2 flex-1">
+                        <span class="text-cyber-gold font-orbitron font-bold text-xs">1.</span>
+                        <span contenteditable="true" onblur="updateRule(0, this.innerText)" class="outline-none flex-1 hover:text-white">Never compromise on frame precision.</span>
+                    </div>
+                    <button onclick="deleteRule(0)" class="text-gray-500 hover:text-red-400 p-1">
+                        <i class="fa-solid fa-trash text-xs"></i>
+                    </button>
+                </div><div class="flex items-center justify-between gap-2 text-sm text-gray-300 bg-black p-2.5 rounded-xl border border-cyber-border hover:border-cyber-gold/40 transition">
+                    <div class="flex items-center gap-2 flex-1">
+                        <span class="text-cyber-gold font-orbitron font-bold text-xs">2.</span>
+                        <span contenteditable="true" onblur="updateRule(1, this.innerText)" class="outline-none flex-1 hover:text-white">First 3 seconds must grab instant attention.</span>
+                    </div>
+                    <button onclick="deleteRule(1)" class="text-gray-500 hover:text-red-400 p-1">
+                        <i class="fa-solid fa-trash text-xs"></i>
+                    </button>
+                </div><div class="flex items-center justify-between gap-2 text-sm text-gray-300 bg-black p-2.5 rounded-xl border border-cyber-border hover:border-cyber-gold/40 transition">
+                    <div class="flex items-center gap-2 flex-1">
+                        <span class="text-cyber-gold font-orbitron font-bold text-xs">3.</span>
+                        <span contenteditable="true" onblur="updateRule(2, this.innerText)" class="outline-none flex-1 hover:text-white">Always check audio levels on mobile speakers before upload.</span>
+                    </div>
+                    <button onclick="deleteRule(2)" class="text-gray-500 hover:text-red-400 p-1">
+                        <i class="fa-solid fa-trash text-xs"></i>
+                    </button>
+                </div></div>
+            </div>
+
+            <!-- PERFORMANCE BENCHMARKS -->
+            <div class="bg-cyber-card border border-cyber-border rounded-2xl p-6 shadow-2xl">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 id="txt_benchmarksTitle" contenteditable="true" onblur="saveText('txt_benchmarksTitle', this.innerText)" class="font-orbitron font-bold text-lg text-white flex items-center gap-2">BENCHMARKS &amp; MILESTONES</h2>
+                    <button onclick="addBenchmark()" class="text-xs font-orbitron bg-cyber-cyan/20 text-cyber-cyan hover:bg-cyber-cyan/30 px-3 py-1 rounded border border-cyber-cyan/40 transition">
+                        + Add Milestone
+                    </button>
+                </div>
+                <div id="benchmarksList" class="space-y-2.5"><div class="flex items-center justify-between gap-2 text-sm text-gray-300 bg-black p-2.5 rounded-xl border border-cyber-border hover:border-cyber-cyan/40 transition">
+                    <div class="flex items-center gap-2 flex-1">
+                        <i class="fa-solid fa-angle-right text-cyber-cyan text-xs"></i>
+                        <span contenteditable="true" onblur="updateBenchmark(0, this.innerText)" class="outline-none flex-1 hover:text-white">Shorts Retention Goal: &gt; 85%</span>
+                    </div>
+                    <button onclick="deleteBenchmark(0)" class="text-gray-500 hover:text-red-400 p-1">
+                        <i class="fa-solid fa-trash text-xs"></i>
+                    </button>
+                </div><div class="flex items-center justify-between gap-2 text-sm text-gray-300 bg-black p-2.5 rounded-xl border border-cyber-border hover:border-cyber-cyan/40 transition">
+                    <div class="flex items-center gap-2 flex-1">
+                        <i class="fa-solid fa-angle-right text-cyber-cyan text-xs"></i>
+                        <span contenteditable="true" onblur="updateBenchmark(1, this.innerText)" class="outline-none flex-1 hover:text-white">Average View Duration: &gt; 2:30 mins</span>
+                    </div>
+                    <button onclick="deleteBenchmark(1)" class="text-gray-500 hover:text-red-400 p-1">
+                        <i class="fa-solid fa-trash text-xs"></i>
+                    </button>
+                </div><div class="flex items-center justify-between gap-2 text-sm text-gray-300 bg-black p-2.5 rounded-xl border border-cyber-border hover:border-cyber-cyan/40 transition">
+                    <div class="flex items-center gap-2 flex-1">
+                        <i class="fa-solid fa-angle-right text-cyber-cyan text-xs"></i>
+                        <span contenteditable="true" onblur="updateBenchmark(2, this.innerText)" class="outline-none flex-1 hover:text-white">Upload Consistency: Minimum 4 Shorts/Week</span>
+                    </div>
+                    <button onclick="deleteBenchmark(2)" class="text-gray-500 hover:text-red-400 p-1">
+                        <i class="fa-solid fa-trash text-xs"></i>
+                    </button>
+                </div></div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- JAVASCRIPT APP LOGIC -->
+    <script>
+        // DEFAULT APPLICATION STATE
+        const defaultState = {
+            texts: {
+                txt_brandTitle: "@TOJI.FNX",
+                txt_brandBadge: "CREATOR HUB",
+                txt_brandSub: "UNIVERSAL EDITABLE MISSION CONTROL",
+                txt_btnExport: "Export JSON",
+                txt_btnImport: "Import JSON",
+                txt_btnReset: "Reset All",
+                txt_quoteBadge: "CREATOR MOTTO & DIRECTIVE",
+                txt_mainQuote: '"Relentless editing. Unmatched discipline. DOMINATE THE ALGORITHM."',
+                txt_timerLabel: "DEADLINE COUNTDOWN",
+                txt_m1_title: "SHORTS POSTED",
+                txt_m1_sub: "High-Velocity Short Form",
+                txt_m1_leftLabel: "REMAINING",
+                txt_m2_title: "AMVS PRODUCED",
+                txt_m2_sub: "Masterpiece Projects",
+                txt_m2_leftLabel: "REMAINING",
+                txt_m3_title: "SUBSCRIBERS",
+                txt_m3_sub: "Audience Growth",
+                txt_m3_leftLabel: "NEEDED",
+                txt_calSectionTitle: "WEEKLY PRODUCTION SCHEDULE",
+                txt_calSectionSub: "Click any day, focus area, or task item to edit text inline.",
+                txt_goalsTitle: "CREATOR TARGET GOALS",
+                txt_todoTitle: "ACTION TO-DO LIST",
+                txt_rulesTitle: "EDITING RULES & DIRECTIVES",
+                txt_benchmarksTitle: "BENCHMARKS & MILESTONES"
+            },
+            targetDate: "2027-11-05",
+            metrics: {
+                m1_curr: 42,
+                m1_targ: 100,
+                m2_curr: 12,
+                m2_targ: 30,
+                m3_curr: 1250,
+                m3_targ: 10000
+            },
+            schedule: [
+                {
+                    day: "Monday",
+                    focus: "Scripting & Audio Sync",
+                    tasks: ["Find viral audio clip", "Set up BPM markers", "Cut intro 5 seconds"]
+                },
+                {
+                    day: "Tuesday",
+                    focus: "Batch Editing",
+                    tasks: ["Edit 3 High-energy shorts", "Export 4K 60FPS vertical", "Draft titles & tags"]
+                },
+                {
+                    day: "Wednesday",
+                    focus: "Main Edit Phase 1",
+                    tasks: ["Main sequence masking", "Impact sound effects", "Velocity graph tuning"]
+                },
+                {
+                    day: "Thursday",
+                    focus: "Main Edit Phase 2",
+                    tasks: ["Color grading & Glow FX", "Typography & Overlays", "Render preview export"]
+                },
+                {
+                    day: "Friday",
+                    focus: "Uploads & Teasers",
+                    tasks: ["Post Short #1", "Schedule Short #2", "Community tab teaser"]
+                },
+                {
+                    day: "Saturday",
+                    focus: "Full Release Day",
+                    tasks: ["Final audio master Check", "Thumbnail design", "Publish Video"]
+                },
+                {
+                    day: "Sunday",
+                    focus: "Review & Analytics",
+                    tasks: ["Analyze CTR & retention", "Plan next week clips", "Rest & recharge"]
+                }
+            ],
+            goals: [
+                { id: 1, title: "Hit 50k views on single Short", range: "Week 1", status: "Achieved" },
+                { id: 2, title: "Master 3D Masking technique", range: "Week 2", status: "In Progress" },
+                { id: 3, title: "Publish 10 Shorts & 2 Long Videos", range: "Month 1", status: "Pending" }
+            ],
+            todos: [
+                { id: 1, text: "Export Thumbnail for Toji Edit", completed: true },
+                { id: 2, text: "Clean project files and cache", completed: false },
+                { id: 3, text: "Keyframe camera zoom on impact shot", completed: false }
+            ],
+            rules: [
+                "Never compromise on frame precision.",
+                "First 3 seconds must grab instant attention.",
+                "Always check audio levels on mobile speakers before upload."
+            ],
+            benchmarks: [
+                "Shorts Retention Goal: > 85%",
+                "Average View Duration: > 2:30 mins",
+                "Upload Consistency: Minimum 4 Shorts/Week"
+            ]
+        };
+
+        // LOAD APP STATE FROM LOCALSTORAGE OR DEFAULT
+        let state = JSON.parse(localStorage.getItem('TOJI_CYBER_HUB_STATE')) || JSON.parse(JSON.stringify(defaultState));
+
+        // SAVE STATE
+        function saveState() {
+            localStorage.setItem('TOJI_CYBER_HUB_STATE', JSON.stringify(state));
+            renderMetrics();
+        }
+
+        // SAVE TEXT INLINE
+        function saveText(id, val) {
+            state.texts[id] = val.trim();
+            saveState();
+        }
+
+        // RESET TO DEFAULTS
+        function resetToDefaults() {
+            if (confirm("Reset ALL texts, metrics, schedule, rules, and goals to original default state?")) {
+                state = JSON.parse(JSON.stringify(defaultState));
+                saveState();
+                initApp();
+            }
+        }
+
+        // INITIALIZE APP
+        function initApp() {
+            // Restore editable texts
+            Object.keys(state.texts).forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.innerText = state.texts[id];
+                }
+            });
+
+            // Target Date
+            document.getElementById('targetDatePicker').value = state.targetDate;
+
+            renderMetrics();
+            renderSchedule();
+            renderGoals();
+            renderTodos();
+            renderRules();
+            renderBenchmarks();
+            startCountdown();
+        }
+
+        // METRICS FUNCTIONS
+        function updateMetric(key, val) {
+            state.metrics[key] = Math.max(0, parseInt(val) || 0);
+            saveState();
+        }
+
+        function changeMetric(key, delta) {
+            state.metrics[key] = Math.max(0, (state.metrics[key] || 0) + delta);
+            saveState();
+        }
+
+        function renderMetrics() {
+            // M1
+            document.getElementById('m1_curr').value = state.metrics.m1_curr;
+            document.getElementById('m1_targ').value = state.metrics.m1_targ;
+            const m1_leftVal = Math.max(0, state.metrics.m1_targ - state.metrics.m1_curr);
+            document.getElementById('m1_left').innerText = m1_leftVal;
+            const m1_pctVal = state.metrics.m1_targ > 0 ? Math.min(100, Math.round((state.metrics.m1_curr / state.metrics.m1_targ) * 100)) : 0;
+            document.getElementById('m1_pct').innerText = `${m1_pctVal}%`;
+            document.getElementById('m1_bar').style.width = `${m1_pctVal}%`;
+
+            // M2
+            document.getElementById('m2_curr').value = state.metrics.m2_curr;
+            document.getElementById('m2_targ').value = state.metrics.m2_targ;
+            const m2_leftVal = Math.max(0, state.metrics.m2_targ - state.metrics.m2_curr);
+            document.getElementById('m2_left').innerText = m2_leftVal;
+            const m2_pctVal = state.metrics.m2_targ > 0 ? Math.min(100, Math.round((state.metrics.m2_curr / state.metrics.m2_targ) * 100)) : 0;
+            document.getElementById('m2_pct').innerText = `${m2_pctVal}%`;
+            document.getElementById('m2_bar').style.width = `${m2_pctVal}%`;
+
+            // M3
+            document.getElementById('m3_curr').value = state.metrics.m3_curr;
+            document.getElementById('m3_targ').value = state.metrics.m3_targ;
+            const m3_leftVal = Math.max(0, state.metrics.m3_targ - state.metrics.m3_curr);
+            document.getElementById('m3_left').innerText = m3_leftVal;
+            const m3_pctVal = state.metrics.m3_targ > 0 ? Math.min(100, Math.round((state.metrics.m3_curr / state.metrics.m3_targ) * 100)) : 0;
+            document.getElementById('m3_pct').innerText = `${m3_pctVal}%`;
+            document.getElementById('m3_bar').style.width = `${m3_pctVal}%`;
+        }
+
+        // TIMER FUNCTIONS
+        function updateTargetDate(val) {
+            state.targetDate = val;
+            saveState();
+        }
+
+        function startCountdown() {
+            setInterval(() => {
+                const target = new Date(state.targetDate + "T00:00:00").getTime();
+                const now = new Date().getTime();
+                const diff = target - now;
+
+                if (diff <= 0) {
+                    document.getElementById('countdownDisplay').innerText = "GOAL DATE REACHED!";
+                    return;
+                }
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById('countdownDisplay').innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }, 1000);
+        }
+
+        // RENDER WEEKLY SCHEDULE
+        function renderSchedule() {
+            const grid = document.getElementById('weeklyCalendarGrid');
+            grid.innerHTML = '';
+
+            state.schedule.forEach((dayData, dayIndex) => {
+                const dayCard = document.createElement('div');
+                dayCard.className = "bg-black border border-cyber-border rounded-xl p-3 flex flex-col justify-between hover:border-cyber-pink/40 transition shadow-md";
+                
+                let tasksHTML = dayData.tasks.map((task, taskIndex) => `
+                    <div class="flex items-center justify-between text-xs text-gray-300 bg-cyber-card/80 p-1.5 rounded border border-cyber-border/40 group/task">
+                        <span contenteditable="true" onblur="updateDayTask(${dayIndex}, ${taskIndex}, this.innerText)" class="outline-none flex-1 hover:text-white">${task}</span>
+                        <button onclick="removeDayTask(${dayIndex}, ${taskIndex})" class="opacity-0 group-hover/task:opacity-100 text-red-400 hover:text-red-300 ml-1">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                `).join('');
+
+                dayCard.innerHTML = `
+                    <div>
+                        <div class="flex items-center justify-between border-b border-cyber-border pb-1.5 mb-2">
+                            <span contenteditable="true" onblur="updateDayTitle(${dayIndex}, this.innerText)" class="font-orbitron font-bold text-xs text-cyber-pink uppercase outline-none">${dayData.day}</span>
+                            <button onclick="addDayTask(${dayIndex})" class="text-[10px] font-orbitron bg-cyber-pink/20 text-cyber-pink hover:bg-cyber-pink/30 px-1.5 py-0.5 rounded border border-cyber-pink/30">
+                                + Task
+                            </button>
+                        </div>
+                        <div contenteditable="true" onblur="updateDayFocus(${dayIndex}, this.innerText)" class="text-xs font-semibold text-cyber-cyan mb-2 outline-none hover:bg-white/5 p-1 rounded">
+                            ${dayData.focus}
+                        </div>
+                        <div class="space-y-1.5">
+                            ${tasksHTML}
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(dayCard);
+            });
+        }
+
+        function updateDayTitle(dayIndex, val) {
+            state.schedule[dayIndex].day = val.trim();
+            saveState();
+        }
+
+        function updateDayFocus(dayIndex, val) {
+            state.schedule[dayIndex].focus = val.trim();
+            saveState();
+        }
+
+        function updateDayTask(dayIndex, taskIndex, val) {
+            state.schedule[dayIndex].tasks[taskIndex] = val.trim();
+            saveState();
+        }
+
+        function addDayTask(dayIndex) {
+            const newTask = prompt("Enter task for " + state.schedule[dayIndex].day + ":");
+            if (newTask) {
+                state.schedule[dayIndex].tasks.push(newTask.trim());
+                saveState();
+                renderSchedule();
+            }
+        }
+
+        function removeDayTask(dayIndex, taskIndex) {
+            state.schedule[dayIndex].tasks.splice(taskIndex, 1);
+            saveState();
+            renderSchedule();
+        }
+
+        // GOALS MANAGEMENT
+        function renderGoals() {
+            const list = document.getElementById('goalList');
+            list.innerHTML = '';
+
+            state.goals.forEach(goal => {
+                const item = document.createElement('div');
+                item.className = "flex items-center justify-between gap-2 p-2.5 rounded-xl bg-black border border-cyber-border hover:border-cyber-cyan/40 transition shadow-sm";
+                
+                let badgeClass = "bg-gray-800 text-gray-300";
+                if (goal.status === "Achieved") badgeClass = "bg-green-500/20 text-green-400 border border-green-500/30";
+                if (goal.status === "In Progress") badgeClass = "bg-cyber-pink/20 text-cyber-pink border border-cyber-pink/30";
+
+                item.innerHTML = `
+                    <div class="flex-1">
+                        <span contenteditable="true" onblur="updateGoalTitle(${goal.id}, this.innerText)" class="text-sm text-gray-200 outline-none hover:text-white">${goal.title}</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <select onchange="updateGoalRange(${goal.id}, this.value)" class="bg-cyber-card text-[11px] font-orbitron text-cyber-cyan border border-cyber-border rounded px-1.5 py-1 outline-none">
+                            <option value="Today" ${goal.range === "Today" ? "selected" : ""}>Today</option>
+                            <option value="Week 1" ${goal.range === "Week 1" ? "selected" : ""}>Week 1</option>
+                            <option value="Week 2" ${goal.range === "Week 2" ? "selected" : ""}>Week 2</option>
+                            <option value="Month 1" ${goal.range === "Month 1" ? "selected" : ""}>Month 1</option>
+                            <option value="Long Term" ${goal.range === "Long Term" ? "selected" : ""}>Long Term</option>
+                        </select>
+                        <select onchange="updateGoalStatus(${goal.id}, this.value)" class="text-[11px] font-orbitron rounded px-1.5 py-1 border outline-none ${badgeClass}">
+                            <option value="Pending" ${goal.status === "Pending" ? "selected" : ""}>Pending</option>
+                            <option value="In Progress" ${goal.status === "In Progress" ? "selected" : ""}>In Progress</option>
+                            <option value="Achieved" ${goal.status === "Achieved" ? "selected" : ""}>Achieved</option>
+                        </select>
+                        <button onclick="deleteGoal(${goal.id})" class="text-gray-500 hover:text-red-400 p-1">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        function addGoal() {
+            const input = document.getElementById('newGoalTitle');
+            const rangeSelect = document.getElementById('newGoalRange');
+            if (input.value.trim()) {
+                state.goals.push({
+                    id: Date.now(),
+                    title: input.value.trim(),
+                    range: rangeSelect.value,
+                    status: "Pending"
+                });
+                input.value = '';
+                saveState();
+                renderGoals();
+            }
+        }
+
+        function updateGoalTitle(id, val) {
+            const g = state.goals.find(x => x.id === id);
+            if (g) g.title = val.trim();
+            saveState();
+        }
+
+        function updateGoalRange(id, val) {
+            const g = state.goals.find(x => x.id === id);
+            if (g) g.range = val;
+            saveState();
+        }
+
+        function updateGoalStatus(id, val) {
+            const g = state.goals.find(x => x.id === id);
+            if (g) g.status = val;
+            saveState();
+            renderGoals();
+        }
+
+        function deleteGoal(id) {
+            state.goals = state.goals.filter(x => x.id !== id);
+            saveState();
+            renderGoals();
+        }
+
+        // TO-DO LIST MANAGEMENT
+        function renderTodos() {
+            const list = document.getElementById('todoList');
+            list.innerHTML = '';
+
+            state.todos.forEach(todo => {
+                const item = document.createElement('div');
+                item.className = "flex items-center justify-between gap-2 p-2.5 rounded-xl bg-black border border-cyber-border hover:border-cyber-pink/40 transition shadow-sm";
+
+                item.innerHTML = `
+                    <div class="flex items-center gap-3 flex-1">
+                        <input type="checkbox" ${todo.completed ? 'checked' : ''} onchange="toggleTodo(${todo.id})" class="w-4 h-4 accent-cyber-pink rounded cursor-pointer">
+                        <span contenteditable="true" onblur="updateTodoText(${todo.id}, this.innerText)" class="text-sm ${todo.completed ? 'line-through text-gray-500' : 'text-gray-200'} outline-none flex-1">${todo.text}</span>
+                    </div>
+                    <button onclick="deleteTodo(${todo.id})" class="text-gray-500 hover:text-red-400 p-1">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        function addTodo() {
+            const input = document.getElementById('newTodoText');
+            if (input.value.trim()) {
+                state.todos.push({
+                    id: Date.now(),
+                    text: input.value.trim(),
+                    completed: false
+                });
+                input.value = '';
+                saveState();
+                renderTodos();
+            }
+        }
+
+        function toggleTodo(id) {
+            const t = state.todos.find(x => x.id === id);
+            if (t) t.completed = !t.completed;
+            saveState();
+            renderTodos();
+        }
+
+        function updateTodoText(id, val) {
+            const t = state.todos.find(x => x.id === id);
+            if (t) t.text = val.trim();
+            saveState();
+        }
+
+        function deleteTodo(id) {
+            state.todos = state.todos.filter(x => x.id !== id);
+            saveState();
+            renderTodos();
+        }
+
+        // RULES MANAGEMENT
+        function renderRules() {
+            const container = document.getElementById('rulesList');
+            container.innerHTML = '';
+
+            state.rules.forEach((rule, idx) => {
+                const item = document.createElement('div');
+                item.className = "flex items-center justify-between gap-2 text-sm text-gray-300 bg-black p-2.5 rounded-xl border border-cyber-border hover:border-cyber-gold/40 transition";
+                item.innerHTML = `
+                    <div class="flex items-center gap-2 flex-1">
+                        <span class="text-cyber-gold font-orbitron font-bold text-xs">${idx + 1}.</span>
+                        <span contenteditable="true" onblur="updateRule(${idx}, this.innerText)" class="outline-none flex-1 hover:text-white">${rule}</span>
+                    </div>
+                    <button onclick="deleteRule(${idx})" class="text-gray-500 hover:text-red-400 p-1">
+                        <i class="fa-solid fa-trash text-xs"></i>
+                    </button>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        function addRule() {
+            const newR = prompt("Enter new master rule:");
+            if (newR) {
+                state.rules.push(newR.trim());
+                saveState();
+                renderRules();
+            }
+        }
+
+        function updateRule(idx, val) {
+            state.rules[idx] = val.trim();
+            saveState();
+        }
+
+        function deleteRule(idx) {
+            state.rules.splice(idx, 1);
+            saveState();
+            renderRules();
+        }
+
+        // BENCHMARKS MANAGEMENT
+        function renderBenchmarks() {
+            const container = document.getElementById('benchmarksList');
+            container.innerHTML = '';
+
+            state.benchmarks.forEach((bm, idx) => {
+                const item = document.createElement('div');
+                item.className = "flex items-center justify-between gap-2 text-sm text-gray-300 bg-black p-2.5 rounded-xl border border-cyber-border hover:border-cyber-cyan/40 transition";
+                item.innerHTML = `
+                    <div class="flex items-center gap-2 flex-1">
+                        <i class="fa-solid fa-angle-right text-cyber-cyan text-xs"></i>
+                        <span contenteditable="true" onblur="updateBenchmark(${idx}, this.innerText)" class="outline-none flex-1 hover:text-white">${bm}</span>
+                    </div>
+                    <button onclick="deleteBenchmark(${idx})" class="text-gray-500 hover:text-red-400 p-1">
+                        <i class="fa-solid fa-trash text-xs"></i>
+                    </button>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        function addBenchmark() {
+            const newB = prompt("Enter new milestone/benchmark:");
+            if (newB) {
+                state.benchmarks.push(newB.trim());
+                saveState();
+                renderBenchmarks();
+            }
+        }
+
+        function updateBenchmark(idx, val) {
+            state.benchmarks[idx] = val.trim();
+            saveState();
+        }
+
+        function deleteBenchmark(idx) {
+            state.benchmarks.splice(idx, 1);
+            saveState();
+            renderBenchmarks();
+        }
+
+        // IMPORT / EXPORT DATA
+        function exportData() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(state, null, 2));
+            const dlAnchorElem = document.createElement('a');
+            dlAnchorElem.setAttribute("href", dataStr);
+            dlAnchorElem.setAttribute("download", `TOJI_FNX_CyberHub_${new Date().toISOString().slice(0,10)}.json`);
+            dlAnchorElem.click();
+        }
+
+        function importData(event) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const importedState = JSON.parse(e.target.result);
+                    state = importedState;
+                    saveState();
+                    initApp();
+                    alert("Dashboard configuration successfully loaded!");
+                } catch(err) {
+                    alert("Invalid JSON configuration file.");
+                }
+            };
+            if (event.target.files[0]) {
+                reader.readAsText(event.target.files[0]);
+            }
+        }
+
+        // ON LOAD INITIALIZATION
+        window.onload = function() {
+            initApp();
+        };
+    </script>
+
+</body></html>
